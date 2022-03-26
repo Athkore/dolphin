@@ -1,0 +1,287 @@
+/*
+SCON4 community theme
+Athkore
+2022
+---
+
+Color Scheme
+
+Blue
+> 0c2fdf text
+
+Orange
+> cf8142 disabled
+> ffe182 border
+> f2a30b background
+
+Yellow
+> fbe407 hover
+
+Black
+> 0b0b0b
+
+*/
+
+/* Every widget */
+QWidget {
+  background-color: transparent;
+  color: #0c2fdf;
+  alternate-background-color: #fbe407;
+  alternate-background-color: transparent;
+  font: bold;
+}
+
+/* Mouse tooltips */
+QToolTip {
+  border: 0.05em solid #ffe182;
+  background-color: #f2a30b;
+  color: #0c2fdf;
+  font: bold;
+}
+
+/* Define background on QDialog and QMainWindow */
+QDialog {
+  background-color: #f2a30b;
+  font: bold;
+}
+QMainWindow {
+    background-image: url("Sys/Resources/scon4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f2a30b;
+    alternate-background-color: #fbe407;
+    font: bold;
+}
+
+/* Top Menu Bar */
+QMenuBar::item:selected {
+  background-color: #fbe407;
+  font: bold;
+}
+QMenu {
+  background-color: #f2a30b;
+  font: bold;
+  border: 0.05em solid #ffe182;
+}
+QMenu::item {
+  background-color: #f2a30b;
+  padding-left: 1.5em;
+  padding-right: 0.75em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  font: bold;
+}
+QMenu::item:selected {
+  background: #ffe182;
+  border: 0.05em solid #ffe182;
+  font: bold;
+}
+QMenu::item:disabled {
+    background-color: #Cf8142;
+    background-color: transparent;
+    opacity: 200;
+    color: #0c2fdf;
+    alternate-background-color: #fbe407;
+    font: bold;
+}
+
+/* Tool Button (Toolbar) */
+QToolButton::disabled {
+  background-color: #Cf8142;
+  background-color: transparent;
+  color: #0c2fdf;
+  opacity: 50;
+  alternate-background-color: #fbe407;
+  font: bold;
+
+}
+QToolButton::hover {
+  background-color: #f2a30b;
+  font: bold;
+}
+
+/* Dock Widget */
+QDockWidget {
+  background-color: #f2a30b;
+  color: #0c2fdf;
+  font-weight: 500;
+  font: bold;
+  background: transparent;
+  background: #f2a30b;
+}
+QDockWidget::title {
+  background: #f2a30b;
+  background: transparent;
+  background-color: #f2a30b;
+  padding-top: 0.20em;
+  padding-left: 0.10em;
+  font: bold;
+}
+/* Dock Buttons: For visibility */
+QDockWidget::close-button, QDockWidget::float-button {
+  background-color: #f2a30b;
+  border: 0.05em solid #0b0b0b;
+  border-radius: 0.3em;
+  font: bold;
+}
+
+/* Push Buttons */
+QPushButton {
+  background-color: #f2a30b;
+  font: bold;
+}
+QPushButton::disabled {
+  background-color: #ffe182;
+  font: bold;
+}
+
+/* Table headers */
+QHeaderView::section {
+  background-color: #e2930b;
+  padding-left: 0.2em;
+  border: 0.05em solid #ffe182;
+  font: bold;
+}
+
+/* Tab Widgets: Disable ugly borders */
+QTabWidget::pane {
+  border: 0em;
+  background-color: #e2930b;
+  font: bold;
+}
+
+/* Text Edit: Log and Debugger borders */
+QTextEdit {
+  border: 0.05em solid #ffe182;
+  font: bold;
+}
+
+/* QTabBar (Settings Dialog) */
+QTabBar::tab {
+  color: #0c3fbf;
+	border: 0.05em solid #ffe182;
+	border-bottom-style: none;
+	background-color: #f2a30b;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	margin-right: -0.2em;
+    font: bold;
+}
+QTabBar::tab:last {
+  margin-right: 0em;
+  font: bold;
+}
+QTabBar::tab:!selected {
+  color: #0c3fbf;
+  border-bottom-style: solid;
+  margin-top: 0.15em;
+  background-color: #f2a30b;
+  font: bold;
+}
+QTabBar::tab:hover {
+	background-color: #f2a30b;
+	color: #0c2fdf;
+    font: bold;
+}
+
+/* Group Boxes (Settings Dialog) */
+QGroupBox {
+  margin-top: 1em;
+  font-size: 8pt;
+  border: 0.05em solid #ffe182;
+  font: bold;
+  background: transparent;
+}
+QGroupBox::title {
+	subcontrol-origin: margin;
+	subcontrol-position: top;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	color: #fff;
+    font: bold;
+}
+
+/* Checkboxes */
+QCheckBox::indicator {
+	border-radius: 0.1em;
+	border: 0.05em solid #ffe182;
+	margin-top: 0.05em;
+	width: 0.8em;
+	height: 0.8em;
+    font: bold;
+}
+QCheckBox::indicator:checked {
+  background-color: #1eac51; /* Green */
+  font: bold;
+}
+QCheckBox::indicator:unchecked {
+  background-color: #e74c3c; /* Red */
+  font: bold;
+}
+QCheckBox::indicator::disabled {
+  background-color: #7f8c8d; /* Gray */
+  font: bold;
+}
+
+/* Radio Buttons */
+QRadioButton::indicator {
+  border-radius: 0.4em;
+  border: 0.05em solid;
+  border-color: white;
+  width: 0.8em;
+  height: 0.8em;
+  font: bold;
+}
+QRadioButton::indicator:checked {
+	background-color: #2ecc71; /* Green */
+    font: bold;
+}
+QRadioButton::indicator:unchecked {
+	background-color: #e74c3c; /* Red */
+    font: bold;
+}
+QRadioButton::indicator::disabled {
+	background-color: #7f8c8d; /* Gray */
+    font: bold;
+}
+
+/* Combo Boxes */
+QComboBox {
+  background-color: #f2a30b;
+  color: #0c3fbf;
+	border: 0.05em solid #ffe182;
+	border-radius: 0.15em;
+	padding-bottom: 0.2em;
+	padding-left: 0.4em;
+    font: bold;
+}
+QComboBox::disabled {
+  background-color: #0c1faf;
+  color: #0c3fbf;
+  font: bold;
+}
+
+/* Spin Boxes */
+QSpinBox, QDoubleSpinBox {
+  background: transparent;
+  border: 0.05em solid #ffe182;
+  border-radius: 0.10em;
+   font: bold;
+}
+
+/* List Widget */
+QListWidget {
+  background-color: #f2a30b;
+}
+QListWidget::item:selected {
+  background-color: #f2a30b;
+  color: #ecf0f1;
+  font: bold;
+}
+QListWidget::item:hover {
+  background-color: #fbe407;
+  color: #ecf0f1;
+  font: bold;
+}

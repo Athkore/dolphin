@@ -135,6 +135,14 @@ void Settings::SetCurrentUserStyle(const QString& stylesheet_name)
     if (stylesheet.open(QFile::ReadOnly))
       stylesheet_contents = QString::fromUtf8(stylesheet.readAll().data());
   }
+  else {
+    QDir directory = QDir(QString::fromStdString(File::GetSysDirectory()));
+    QFile stylesheet(directory.filePath(QString::fromStdString("Resources/scon4-community.qss")));
+    if (stylesheet.open(QFile::ReadOnly))
+      stylesheet_contents = QString::fromUtf8(stylesheet.readAll().data());
+    QString font_path = directory.filePath(QString::fromStdString("Resources/njnaruto.ttf"));
+    QFontDatabase::addApplicationFont(font_path);
+  }
 
   // Define tooltips style if not already defined
   if (!stylesheet_contents.contains(QStringLiteral("QToolTip"), Qt::CaseSensitive))
