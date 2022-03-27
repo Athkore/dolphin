@@ -270,8 +270,8 @@ jobs:
           CERTIFICATE_MACOS_APPLICATION: ${{ secrets.CERTIFICATE_MACOS_APPLICATION }}
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
-          #chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
-          python3 BuildMacOSUniversalBinary.py ${{ matrix.build_config }}
+          chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
+          #python3 BuildMacOSUniversalBinary.py ${{ matrix.build_config }}
           mkdir artifact
           FILE_NAME=${{ env.CURR_DATE }}-${{ env.GIT_HASH }}-${{ env.GIT_TAG }}-${{ matrix.artifact_name }}
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
