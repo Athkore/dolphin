@@ -6,6 +6,8 @@ Thumbs.db
 Externals/mGBA/version.c
 Source/Core/Common/scmrev.h
 AppDir
+Tools/linuxdeploy*
+Tools/appimageupdatetool
 # Ignore files output by build
 /[Bb]uild*/
 /[Bb]inary*/

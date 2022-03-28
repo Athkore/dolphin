@@ -6,11 +6,6 @@ on:
         - "**"
     paths-ignore:
         - "**.md"
-  pull_request:
-    branches:
-      - slippi
-    paths-ignore:
-      - "**.md"
 
 jobs:
   skip_duplicates:
@@ -269,6 +264,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         env:
           CERTIFICATE_MACOS_APPLICATION: ${{ secrets.CERTIFICATE_MACOS_APPLICATION }}
+          Qt5_DIR: ./Externals/Qt/Qt5.15.0/msvc2019_64/lib/cmake
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
           chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}

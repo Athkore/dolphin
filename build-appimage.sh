@@ -2,7 +2,7 @@
 # build-appimage.sh
 
 ZSYNC_STRING="gh-releases-zsync|dolphin|scon4|dolphin-scon4-x86_64.AppImage.zsync"
-NETPLAY_APPIMAGE_STRING="dolphin-scon4-x86_64.AppImage"
+NETPLAY_APPIMAGE_STRING="Dolphin-SCON4-x86_64.AppImage"
 
 LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
 LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
