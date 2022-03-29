@@ -73,6 +73,11 @@ jobs:
           echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
           echo "GIT_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
           echo "CURR_DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+      - name: 'Init submodules'
+        working-directory: ${{ github.workspace }}
+        shell: bash
+        if: success()
+        run: git submodule update --init
       - name: "Build ${{ matrix.build_type }} Dolphin"
         shell: cmd
         run: |
@@ -264,7 +269,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         env:
           CERTIFICATE_MACOS_APPLICATION: ${{ secrets.CERTIFICATE_MACOS_APPLICATION }}
-          Qt5_DIR: ./Externals/Qt/Qt5.15.0/msvc2019_64/lib/cmake
+          Qt5_DIR: ../Externals/Qt/Qt5.15.0/msvc2019_64/lib/cmake
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
           chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
