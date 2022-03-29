@@ -20,11 +20,11 @@
 #define DOLPHIN_DATA_DIR "Library/Application Support/Dolphin"
 #elif defined ANDROID
 #define USERDATA_DIR "user"
-#define DOLPHIN_DATA_DIR "/sdcard/dolphin-emu"
+#define DOLPHIN_DATA_DIR "/sdcard/dolphin-scon"
 #define NOMEDIA_FILE ".nomedia"
 #else
 #define USERDATA_DIR "user"
-#define DOLPHIN_DATA_DIR "dolphin-emu"
+#define DOLPHIN_DATA_DIR "dolphin-scon"
 #endif
 
 // Dirs in both User and Sys
