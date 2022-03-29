@@ -25,7 +25,7 @@ Tools/appimageupdatetool
 *.tlog
 *.VC.opendb
 *.VC.db
-*.AppImage
+*.AppImage*
 .vs*/
 /Source/enc_temp_folder/
 # Ignore build info file created by QtCreator
