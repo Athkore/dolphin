@@ -81,7 +81,7 @@ jobs:
       - name: "Build ${{ matrix.build_type }} Dolphin"
         shell: cmd
         run: |
-          msbuild /p:Configuration=${{ matrix.build_config }} /p:Platform=x64 /p:DefineConstants="ENABLE_ANALYTICS=0" ${{ github.workspace }}\Source\dolphin-emu.sln
+          msbuild /p:Configuration=${{ matrix.build_config }} /p:Platform=x64 /p:USE_ANALYTICS=0 ${{ github.workspace }}\Source\dolphin-emu.sln
       #- name: "Build Netplay Updater"
       #  working-directory: ${{ github.workspace }}
       #  shell: cmd
