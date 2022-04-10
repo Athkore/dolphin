@@ -272,9 +272,11 @@ jobs:
           Qt5_DIR: ../Externals/Qt/Qt5.15.0/msvc2019_64/lib/cmake
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
-          chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
-          #python3 BuildMacOSUniversalBinary.py ${{ matrix.build_config }}
-          mkdir artifact
+          #chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
+          mkdir -p build
+          cd build
+          python3 ../BuildMacOSUniversalBinary.py ${{ matrix.build_config }}
+          mkdir ../artifact
           FILE_NAME=${{ env.CURR_DATE }}-${{ env.GIT_HASH }}-${{ env.GIT_TAG }}-${{ matrix.artifact_name }}
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
       - name: "Codesign ${{ matrix.build_type}} Dolphin"
