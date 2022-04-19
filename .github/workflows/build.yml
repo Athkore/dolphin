@@ -271,7 +271,7 @@ jobs:
           CERTIFICATE_MACOS_APPLICATION: ${{ secrets.CERTIFICATE_MACOS_APPLICATION }}
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
-          export Qt5_DIR=$(brew --prefix)/opt/qt5
+          export Qt5_DIR=$(brew --prefix QT5)/clang_64/lib/cmake/Qt5
           #chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
           mkdir -p build
           cd build
