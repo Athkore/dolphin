@@ -44,13 +44,14 @@ DEFAULT_CONFIG = {
 
     # Location for CMake to search for files (default is for homebrew)
     "arm64_cmake_prefix":  "/opt/homebrew",
-    "x86_64_cmake_prefix": "/usr/local",
+    "x86_64_cmake_prefix":  "/opt/homebrew",
+    #"x86_64_cmake_prefix": "/usr/local",
 
     # Locations to qt5 directories for arm and x64 libraries
     # The default values of these paths are taken from the default
     # paths used for homebrew
     "arm64_qt5_path":  "/opt/homebrew/opt/qt5",
-    "x86_64_qt5_path": "/usr/local/opt/qt5",
+    "x86_64_qt5_path": "/opt/homebrew/opt/qt5",
 
     # Identity to use for code signing. "-" indicates that the app will not
     # be cryptographically signed/notarized but will instead just use a
