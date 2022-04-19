@@ -271,11 +271,12 @@ jobs:
           CERTIFICATE_MACOS_APPLICATION: ${{ secrets.CERTIFICATE_MACOS_APPLICATION }}
         run: |
           export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
-          #export Qt5_DIR=$(brew --prefix QT5)/clang_64/lib/cmake/Qt5
+          export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+          export CPPFLAGS="-I/usr/local/opt/qt@5/include"
           #chmod +x ./build-mac.sh && ./build-mac.sh ${{ matrix.build_config }}
           mkdir -p build/x86_64/Binaries/Dolphin.app
           cd build
-          python3 ../BuildMacOSUniversalBinary.py ${{ matrix.build_config }} --x86_64_qt5_path $(brew --prefix qt5) --x86_64_cmake_prefix $(brew --prefix)
+          python3 ../BuildMacOSUniversalBinary.py ${{ matrix.build_config }} #--x86_64_qt5_path $(brew --prefix qt@5) --x86_64_cmake_prefix $(brew --prefix)
           mkdir ../artifact
           FILE_NAME=${{ env.CURR_DATE }}-${{ env.GIT_HASH }}-${{ env.GIT_TAG }}-${{ matrix.artifact_name }}
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV

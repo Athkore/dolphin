@@ -264,6 +264,11 @@ def build(config):
         env["Qt5_DIR"] = config[arch+"_qt5_path"]
         env["CMAKE_OSX_ARCHITECTURES"] = arch
         env["CMAKE_PREFIX_PATH"] = config[arch+"_cmake_prefix"]
+        env["LDFLAGS"] = "-L/usr/local/opt/qt@5/lib"
+        env["CPPFLAGS"] = "-I/usr/local/opt/qt@5/include"
+
+        #  export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+        #  export CPPFLAGS="-I/usr/local/opt/qt@5/include"
 
         # Add the other architecture's prefix path to the ignore path so that
         # CMake doesn't try to pick up the wrong architecture's libraries when
@@ -308,10 +313,11 @@ def build(config):
     os.mkdir(dst_app)
 
     # Source binary trees to merge together
-    src_app0 = ARCHITECTURES[0]+"/Binaries/"
-    src_app1 = ARCHITECTURES[1]+"/Binaries/"
+    #src_app0 = ARCHITECTURES[0]+"/Binaries/"
+    dst_app = ARCHITECTURES[0]+"/Binaries/"
+    #src_app1 = ARCHITECTURES[1]+"/Binaries/"
 
-    recursive_merge_binaries(src_app0, src_app1, dst_app)
+    #recursive_merge_binaries(src_app0, src_app1, dst_app)
     for path in glob.glob(dst_app+"/*"):
         if os.path.isdir(path) and os.path.splitext(path)[1] != ".app":
             continue
