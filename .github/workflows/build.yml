@@ -321,7 +321,6 @@ jobs:
           chmod +x Tools/notarize_netplay.sh && ./Tools/notarize_netplay.sh ./artifact/${{ env.FILE_NAME }}.dmg
       - name: "Publish"
         if: success()
-        working-directory: ${{ github.workspace }}
         uses: actions/upload-artifact@v2-preview
         with:
           name: ${{ matrix.artifact_name }}
