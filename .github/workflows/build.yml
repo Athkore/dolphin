@@ -299,8 +299,8 @@ jobs:
             --window-size 590 610 \
             --icon-size 100 \
             --app-drop-link 440 196 \
-            --icon "SCON Dolphin.app" 140 196 \
-            --hide-extension "SCON Dolphin.app" \
+            --icon "Dolphin.app" 140 196 \
+            --hide-extension "Dolphin.app" \
             "${{ env.FILE_NAME }}.dmg" \
             "./build/Binaries/"
           mv "${{ env.FILE_NAME }}.dmg" artifact/
