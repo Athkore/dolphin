@@ -280,7 +280,7 @@ jobs:
           mkdir ../artifact
           FILE_NAME=${{ env.CURR_DATE }}-${{ env.GIT_HASH }}-${{ env.GIT_TAG }}-${{ matrix.artifact_name }}
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-          mv "${{ env.FILE_NAME }}.dmg" ../artifact/
+          mv "${FILE_NAME}.dmg" ../artifact/
       - name: "Codesign ${{ matrix.build_type}} Dolphin"
         if: success() && env.CERTIFICATE_MACOS_APPLICATION != null
         shell: bash
