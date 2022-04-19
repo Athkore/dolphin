@@ -280,7 +280,6 @@ jobs:
           mkdir ../artifact
           FILE_NAME=${{ env.CURR_DATE }}-${{ env.GIT_HASH }}-${{ env.GIT_TAG }}-${{ matrix.artifact_name }}
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-          mv "${{ env.FILE_NAME }}.dmg" ../artifact/
       - name: "Package Release DMG"
         if: success()
         shell: bash
