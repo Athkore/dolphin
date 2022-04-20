@@ -24,10 +24,11 @@ jobs:
           find ./ -mindepth 2 -type f -exec mv -t ./ -i '{}' +
           find . -type d -empty -delete
           unzip *linux* && rm *linux* && rm -rf Sys # && mv Dolphin_SCON4-x86_64.AppImage "Dolphin_SCON4-x86_64.AppImage" #"scon-dolphin-${{ env.VERSION }}-Linux.zip"
-          unzip *macOS* && mv *.dmg "scon-dolphin-${{ env.VERSION }}-Mac.dmg" && rm *macOS*
+          mkdir -p ${{ env.VERSION }}
+          mv *.dmg "scon-dolphin-${{ env.VERSION }}-Mac.dmg"
           ls
-          echo ${{ env.VERSION }}
-          unzip windows* && rm windows* && mv *windows* "scon-dolphin-${{ env.VERSION }}-Win.zip"
+          env
+          mv *windows* "scon-dolphin-${{ env.VERSION }}-Win.zip"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
