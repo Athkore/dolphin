@@ -302,7 +302,7 @@ jobs:
             --icon "Dolphin.app" 140 196 \
             --hide-extension "Dolphin.app" \
             "${{ env.FILE_NAME }}.dmg" \
-            "./build/Binaries/"
+            "./build/x86_64/Binaries/"
           mv "${{ env.FILE_NAME }}.dmg" artifact/
       - name: "Codesign ${{ matrix.build_type}} Dolphin"
         if: success() && env.CERTIFICATE_MACOS_APPLICATION != null
