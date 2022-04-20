@@ -25,10 +25,10 @@ jobs:
           find . -type d -empty -delete
           unzip *linux* && rm *linux* && rm -rf Sys # && mv Dolphin_SCON4-x86_64.AppImage "Dolphin_SCON4-x86_64.AppImage" #"scon-dolphin-${{ env.VERSION }}-Linux.zip"
           mkdir -p ${{ env.VERSION }}
-          mv *.dmg "scon-dolphin-${{ env.VERSION }}-Mac.dmg"
+          mv *.dmg "scon-dolphin-Mac.dmg" #"${{ env.VERSION }}-Mac.dmg"
           ls
           env
-          mv *windows* "scon-dolphin-${{ env.VERSION }}-Win.zip"
+          mv *windows* "scon-dolphin-Win.zip" #"${{ env.VERSION }}-Win.zip"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
