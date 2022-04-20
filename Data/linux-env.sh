@@ -12,6 +12,6 @@ if [[ $(env | grep -i wayland) ]]; then
     
     # Disable Webkit compositing on Wayland cause it breaks stuff
     export WEBKIT_DISABLE_COMPOSITING_MODE=1
-else
-    env QT_QPA_PLATFORM=xcb 
+#else
+#    env QT_QPA_PLATFORM=xcb 
 fi

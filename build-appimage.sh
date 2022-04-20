@@ -41,7 +41,7 @@ rm -rf ./AppDir/
 mkdir -p AppDir
 mkdir -p ${APPDIR_BIN}
 
-cp /usr/bin/env ./AppDir/usr/bin/
+#cp /usr/bin/env ./AppDir/usr/bin/
 
 ./Tools/linuxdeploy \
 	--appdir=./AppDir \
@@ -53,7 +53,7 @@ cp /usr/bin/env ./AppDir/usr/bin/
 mkdir -p ${APPDIR_HOOKS}
 cp Data/linux-env.sh ${APPDIR_HOOKS}
 
-cp /usr/bin/env ./AppDir/usr/bin/ #${APPDIR_BIN}
+#cp /usr/bin/env ./AppDir/usr/bin/ #${APPDIR_BIN}
 
 # Add the Sys dir to the AppDir for packaging
 cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
