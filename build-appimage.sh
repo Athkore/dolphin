@@ -38,6 +38,7 @@ if [ ! -e ./Tools/appimageupdatetool ]; then
 fi
 
 chmod +x ./Tools/linuxdeploy
+chmod +x ./Tools/linuxdeployqt
 chmod +x ./Tools/linuxdeploy-update-plugin
 chmod +x ./Tools/appimageupdatetool
 
