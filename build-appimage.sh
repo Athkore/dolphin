@@ -4,9 +4,13 @@
 ZSYNC_STRING="gh-releases-zsync|athkore|dolphin|latest|Dolphin-SCON4-x86_64.AppImage.zsync"
 NETPLAY_APPIMAGE_STRING="Dolphin-SCON4-x86_64.AppImage"
 
-LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
-LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
+LINUXDEPLOY_PATH="https://github.com/probonopd/linuxdeployqt/releases/download/continuous"
+LINUXDEPLOY_FILE="linuxdeployqt-continuous-x86_64.AppImage"
 LINUXDEPLOY_URL="${LINUXDEPLOY_PATH}/${LINUXDEPLOY_FILE}"
+
+#LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
+#LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
+#LINUXDEPLOY_URL="${LINUXDEPLOY_PATH}/${LINUXDEPLOY_FILE}"
 
 UPDATEPLUG_PATH="https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous"
 UPDATEPLUG_FILE="linuxdeploy-plugin-appimage-x86_64.AppImage"
