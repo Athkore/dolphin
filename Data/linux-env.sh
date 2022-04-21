@@ -3,7 +3,10 @@
 
 # Add /usr/lib/ to LD_LIBRARY_PATH cause Ubuntu is dumb
 export LD_LIBRARY_PATH="/usr/lib/:$LD_LIBRARY_PATH"
+
 export QT_QPA_PLATFORM=xcb
+
+if [ -z ${DISPLAY} ]; then export DISPLAY=:0; fi
 
 #if [[ $(env | grep -i wayland) ]]; then
     # wxWidgets 3.14 is GTK3, which seemingly has an issue or two when
