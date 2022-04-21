@@ -8,9 +8,9 @@ LINUXDEPLOYQT_PATH="https://github.com/probonopd/linuxdeployqt/releases/download
 LINUXDEPLOYQT_FILE="linuxdeployqt-continuous-x86_64.AppImage"
 LINUXDEPLOYQT_URL="${LINUXDEPLOYQT_PATH}/${LINUXDEPLOYQT_FILE}"
 
-#LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
-#LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
-#LINUXDEPLOY_URL="${LINUXDEPLOY_PATH}/${LINUXDEPLOY_FILE}"
+LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
+LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
+LINUXDEPLOY_URL="${LINUXDEPLOY_PATH}/${LINUXDEPLOY_FILE}"
 
 UPDATEPLUG_PATH="https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous"
 UPDATEPLUG_FILE="linuxdeploy-plugin-appimage-x86_64.AppImage"
@@ -47,18 +47,21 @@ rm -rf ./AppDir/
 # Build the AppDir directory for this image
 #mkdir -p AppDir
 #mkdir -p ${APPDIR_BIN}
-
+pushd build
+make DESTDIR=../AppDir/ -j$(nproc) install
+popd
 
 # Add the linux-env script to the AppDir prior to running linuxdeploy
 #cp /usr/bin/env ./AppDir/usr/bin/
 #mkdir -p ${APPDIR_HOOKS}
 #cp Data/linux-env.sh ${APPDIR_HOOKS}
 
+./Tools/linuxdeployqt AppDir/usr/share/applications/dolphin-emu.desktop -bundle-non-qt-libs
+
 # Add the Sys dir to the AppDir for packaging
 cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
 
-./Tools/linuxdeployqt AppDir/usr/share/applications/dolphin-emu.desktop -bundle-non-qt-libs
-
+rm AppDir/AppRun
 cp Data/linux-env.sh AppDir/AppRun
 chmod +x AppDir/AppRun
 
