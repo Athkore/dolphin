@@ -1,7 +1,7 @@
 name: Builds
 
 on:
-  push:
+  release:
     branches:
         - "**"
     paths-ignore:
@@ -29,7 +29,7 @@ jobs:
         build_type: [Netplay]
         include:
           - build_type: Netplay
-            artifact_name: windows-netplay
+            artifact_name: windows
             build_config: Release
     env:
       DXSDK_DIR: "C:\\Program Files (x86)\\Microsoft DirectX SDK (June 2010)\\"
@@ -182,7 +182,8 @@ jobs:
           libpng-dev \
           qtbase5-private-dev \
           libxxf86vm-dev \
-          x11proto-xinerama-dev
+          x11proto-xinerama-dev \
+          libxcb1-dev
       - name: "Build ${{ matrix.build_type }} Dolphin"
         if: success()
         working-directory: ${{ github.workspace }}
