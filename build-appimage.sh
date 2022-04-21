@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # build-appimage.sh
 
-ZSYNC_STRING="gh-releases-zsync|dolphin|scon4|dolphin-scon4-x86_64.AppImage.zsync"
+ZSYNC_STRING="gh-releases-zsync|athkore|dolphin|latest|Dolphin-SCON4-x86_64.AppImage.zsync"
 NETPLAY_APPIMAGE_STRING="Dolphin-SCON4-x86_64.AppImage"
 
 LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
@@ -41,22 +41,20 @@ rm -rf ./AppDir/
 mkdir -p AppDir
 mkdir -p ${APPDIR_BIN}
 
+
+# Add the linux-env script to the AppDir prior to running linuxdeploy
 #cp /usr/bin/env ./AppDir/usr/bin/
+mkdir -p ${APPDIR_HOOKS}
+cp Data/linux-env.sh ${APPDIR_HOOKS}
+
+# Add the Sys dir to the AppDir for packaging
+cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
 
 ./Tools/linuxdeploy \
 	--appdir=./AppDir \
 	-e ./build/Binaries/dolphin-emu \
 	-d ./Data/dolphin-emu.desktop \
 	-i ./Data/dolphin-emu.png
-
-# Add the linux-env script to the AppDir prior to running linuxdeploy
-mkdir -p ${APPDIR_HOOKS}
-cp Data/linux-env.sh ${APPDIR_HOOKS}
-
-#cp /usr/bin/env ./AppDir/usr/bin/ #${APPDIR_BIN}
-
-# Add the Sys dir to the AppDir for packaging
-cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
 
 # remove existing appimage just in case
 rm -f ${NETPLAY_APPIMAGE_STRING}
