@@ -50,11 +50,15 @@ cp Data/linux-env.sh ${APPDIR_HOOKS}
 # Add the Sys dir to the AppDir for packaging
 cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
 
+
 ./Tools/linuxdeploy \
 	--appdir=./AppDir \
 	-e ./build/Binaries/dolphin-emu \
 	-d ./Data/dolphin-emu.desktop \
-	-i ./Data/dolphin-emu.png
+	-i ./Data/dolphin-emu.png 
+
+# Add libxcb.so.1 to AppDir
+cp /lib/x86_64-linux-gnu/libxcb.so* ./AppDir/usr/lib/
 
 # remove existing appimage just in case
 rm -f ${NETPLAY_APPIMAGE_STRING}
