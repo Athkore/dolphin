@@ -153,8 +153,6 @@ jobs:
           pkg-config \
           git \
           wget \
-          build-essentials \
-          qt5-default \
           libao-dev \
           libasound2-dev \
           libavcodec-dev \
@@ -186,7 +184,6 @@ jobs:
           qtbase5-private-dev \
           libxxf86vm-dev \
           x11proto-xinerama-dev \
-          libxcb1-dev \
 
       - name: "Build ${{ matrix.build_type }} Dolphin"
         if: success()
