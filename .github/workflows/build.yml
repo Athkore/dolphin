@@ -2,6 +2,7 @@ name: Builds
 
 on:
   release:
+    types: [prereleased]
     branches:
         - "**"
     paths-ignore:
