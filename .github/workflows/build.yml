@@ -153,6 +153,7 @@ jobs:
           pkg-config \
           git \
           wget \
+          qt5-default \
           libao-dev \
           libasound2-dev \
           libavcodec-dev \

@@ -4,9 +4,9 @@
 ZSYNC_STRING="gh-releases-zsync|athkore|dolphin|latest|Dolphin-SCON4-x86_64.AppImage.zsync"
 NETPLAY_APPIMAGE_STRING="Dolphin-SCON4-x86_64.AppImage"
 
-LINUXDEPLOY_PATH="https://github.com/probonopd/linuxdeployqt/releases/download/continuous"
-LINUXDEPLOY_FILE="linuxdeployqt-continuous-x86_64.AppImage"
-LINUXDEPLOY_URL="${LINUXDEPLOY_PATH}/${LINUXDEPLOY_FILE}"
+LINUXDEPLOYQT_PATH="https://github.com/probonopd/linuxdeployqt/releases/download/continuous"
+LINUXDEPLOYQT_FILE="linuxdeployqt-continuous-x86_64.AppImage"
+LINUXDEPLOYQT_URL="${LINUXDEPLOYQT_PATH}/${LINUXDEPLOYQT_FILE}"
 
 #LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
 #LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
@@ -27,6 +27,9 @@ APPDIR_HOOKS="./AppDir/apprun-hooks/"
 if [ ! -e ./Tools/linuxdeploy ]; then
 	wget ${LINUXDEPLOY_URL} -O ./Tools/linuxdeploy
 fi
+if [ ! -e ./Tools/linuxdeployqt ]; then
+	wget ${LINUXDEPLOYQT_URL} -O ./Tools/linuxdeployqt
+fi
 if [ ! -e ./Tools/linuxdeploy-update-plugin ]; then
 	wget ${UPDATEPLUG_URL} -O ./Tools/linuxdeploy-update-plugin
 fi
@@ -42,27 +45,28 @@ chmod +x ./Tools/appimageupdatetool
 rm -rf ./AppDir/
 
 # Build the AppDir directory for this image
-mkdir -p AppDir
-mkdir -p ${APPDIR_BIN}
+#mkdir -p AppDir
+#mkdir -p ${APPDIR_BIN}
 
 
 # Add the linux-env script to the AppDir prior to running linuxdeploy
 #cp /usr/bin/env ./AppDir/usr/bin/
-mkdir -p ${APPDIR_HOOKS}
-cp Data/linux-env.sh ${APPDIR_HOOKS}
+#mkdir -p ${APPDIR_HOOKS}
+#cp Data/linux-env.sh ${APPDIR_HOOKS}
 
 # Add the Sys dir to the AppDir for packaging
 cp -r Data/Sys ./AppDir/usr/bin/ #${APPDIR_BIN}
 
+./Tools/linuxdeployqt AppDir/usr/share/applications/dolphin-emu.desktop -bundle-non-qt-libs
 
-./Tools/linuxdeploy \
-	--appdir=./AppDir \
-	-e ./build/Binaries/dolphin-emu \
-	-d ./Data/dolphin-emu.desktop \
-	-i ./Data/dolphin-emu.png 
+cp Data/linux-env.sh AppDir/AppRun
+chmod +x AppDir/AppRun
 
-# Add libxcb.so.1 to AppDir
-cp /lib/x86_64-linux-gnu/libxcb.so* ./AppDir/usr/lib/
+#./Tools/linuxdeploy \
+#	--appdir=./AppDir \
+#	-e ./build/Binaries/dolphin-emu \
+#	-d ./Data/dolphin-emu.desktop \
+#	-i ./Data/dolphin-emu.png 
 
 # remove existing appimage just in case
 rm -f ${NETPLAY_APPIMAGE_STRING}
