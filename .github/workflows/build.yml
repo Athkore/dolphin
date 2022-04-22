@@ -1,8 +1,7 @@
 name: Builds
 
 on:
-  release:
-    types: [prereleased]
+  push:
     branches:
         - "**"
     paths-ignore:
